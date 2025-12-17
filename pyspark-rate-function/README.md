@@ -17,8 +17,9 @@ rate calculation across millions of records in a distributed environment.
 - Keep the implementation simple and readable
 
 ## When this is useful
-- Credit pricing analysis
-- Back-testing loan portfolios or renegotiating a loan by creating a
-  new operation given present value of the former one and
-  new installment value and number of periods that fits best the client's needs.
-- Analysis of rentability for segments of clients with caracteristics in data sets.
+- Back-testing Loan Portfolios: Analyzing historical performance and verifying interest rates across massive legacy datasets.
+- Loan Renegotiation & Refinancing: Creating new operations by calculating the necessary rate given
+  a specific Present Value ($PV$),
+  a desired installment ($PMT$),
+  and a set number of periods ($NPER$) that fits the client’s budget.
+- Expected rentability analysis: Calculating the internal rate of return for different client segments to identify high-yield or high-risk behaviors within large datasets.
