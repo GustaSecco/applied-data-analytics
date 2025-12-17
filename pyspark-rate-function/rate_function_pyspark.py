@@ -34,8 +34,13 @@ def rate_finder(periods, period_amount, principal, final_amount, type=0, guess=0
 # Register as UDFs
 rate_finder_udf = udf(rate_finder, DoubleType())
 
+#Initialize Spark
+spark = SparkSession.builder \
+    .appName("LoanRateCalculation") \
+    .getOrCreate()
+
 # Read the CSV file
-df = spark.read.csv("data/loans.csv", header=True, inferSchema=True)
+df = spark.read.csv("loans.csv", header=True, inferSchema=True)
 
 # Apply calculations using UDFs
 result_df = df \
