@@ -18,5 +18,7 @@ rate calculation across millions of records in a distributed environment.
 
 ## When this is useful
 - Credit pricing analysis
-- Back-testing loan portfolios
-- Large-scale simulations where per-record rate calculation is required
+- Back-testing loan portfolios or renegotiating a loan by creating a
+  new operation given present value of the former one and
+  new installment value and number of periods that fits best the client's needs.
+- Analysis of rentability for segments of clients with caracteristics in data sets.
