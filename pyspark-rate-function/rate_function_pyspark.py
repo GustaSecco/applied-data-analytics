@@ -30,7 +30,15 @@ def rate_finder(periods, period_amount, principal, final_amount, type=0, guess=0
     except RuntimeError:
         # Return None or a placeholder if the root is not found
         return None
-
-
+        
 # Register as UDFs
 rate_finder_udf = udf(rate_finder, DoubleType())
+
+# Read the CSV file
+df = spark.read.csv("data/loans.csv", header=True, inferSchema=True)
+
+# Apply calculations using UDFs
+result_df = df \
+    .withColumn("finance_interest_rate",
+                rate_finder_udf(col("periods"), col("period_amount"), col("principal_value"), col("final_amount")))
+result_df.show()
